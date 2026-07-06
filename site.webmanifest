@@ -1,0 +1,17 @@
+{
+  "name": "Dr. Rohan Shetty | Surgical Oncologist & Robotic Surgeon",
+  "short_name": "Dr. Rohan Shetty",
+  "description": "Surgical oncologist and robotic surgeon in Mangalore, India with 16+ years of experience and 5000+ major cancer surgeries.",
+  "start_url": "/drrohanshetty/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
