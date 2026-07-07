@@ -133,10 +133,10 @@
     }
     .glow-line {
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(129,140,248,0.35), transparent);
+      background: linear-gradient(to right, transparent, rgba(110,231,183,0.35), transparent);
     }
     .gradient-text {
-      background: linear-gradient(to right, #818cf8, #c084fc);
+      background: linear-gradient(to right, #6ee7b7, #ffffff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -149,15 +149,15 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .stat-num {
       font-weight: 200;
-      background: linear-gradient(180deg, #ffffff 30%, #818cf8);
+      background: linear-gradient(180deg, #ffffff 30%, #6ee7b7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
     .timeline-dot {
       width: 11px; height: 11px; border-radius: 9999px;
-      background: linear-gradient(135deg, #818cf8, #c084fc);
-      box-shadow: 0 0 14px rgba(129,140,248,0.8);
+      background: linear-gradient(135deg, #6ee7b7, #ffffff);
+      box-shadow: 0 0 14px rgba(110,231,183,0.8);
     }
     #mobileMenu {
       transition: opacity 0.3s ease, transform 0.3s ease;
@@ -169,7 +169,7 @@
     }
     .pub-list::-webkit-scrollbar { width: 5px; }
     .pub-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 8px; }
-    .pub-list::-webkit-scrollbar-thumb { background: rgba(129,140,248,0.4); border-radius: 8px; }
+    .pub-list::-webkit-scrollbar-thumb { background: rgba(110,231,183,0.4); border-radius: 8px; }
   </style>
 </head>
 <body class="bg-black text-white font-light antialiased">
@@ -183,25 +183,25 @@
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <a href="#home" class="flex items-center" aria-label="Dr. Rohan Shetty home">
-            <svg class="h-8 w-8 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <svg class="h-8 w-8 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-2.6-8-6.2-8-10.4C4 7.5 6 5.5 8.5 5.5c1.4 0 2.7.7 3.5 1.8.8-1.1 2.1-1.8 3.5-1.8C18 5.5 20 7.5 20 10.6c0 4.2-3.5 7.8-8 10.4z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12h2l1-2 1.5 4 1-2h1.5"></path>
             </svg>
             <span class="ml-3 text-lg md:text-xl tracking-tight font-medium">Dr. Rohan Shetty</span>
           </a>
           <div class="hidden md:flex space-x-8 text-sm">
-            <a href="#about" class="hover:text-indigo-300 transition-colors">About</a>
-            <a href="#expertise" class="hover:text-indigo-300 transition-colors">Expertise</a>
-            <a href="#experience" class="hover:text-indigo-300 transition-colors">Experience</a>
-            <a href="#credentials" class="hover:text-indigo-300 transition-colors">Credentials</a>
-            <a href="#research" class="hover:text-indigo-300 transition-colors">Research</a>
-            <a href="#contact" class="hover:text-indigo-300 transition-colors">Contact</a>
+            <a href="#about" class="hover:text-emerald-300 transition-colors">About</a>
+            <a href="#expertise" class="hover:text-emerald-300 transition-colors">Expertise</a>
+            <a href="#experience" class="hover:text-emerald-300 transition-colors">Experience</a>
+            <a href="#credentials" class="hover:text-emerald-300 transition-colors">Credentials</a>
+            <a href="#research" class="hover:text-emerald-300 transition-colors">Research</a>
+            <a href="#contact" class="hover:text-emerald-300 transition-colors">Contact</a>
           </div>
           <div class="hidden md:block">
-            <a href="#contact" class="text-sm border border-indigo-500/30 rounded-md px-4 py-2 hover:bg-indigo-500/10 transition-all">Book a Consultation</a>
+            <a href="#contact" class="text-sm border border-emerald-400/30 rounded-md px-4 py-2 hover:bg-emerald-400/10 transition-all">Book a Consultation</a>
           </div>
           <!-- Hamburger -->
-          <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md border border-indigo-500/30" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md border border-emerald-400/30" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
             <span class="block w-5 h-px bg-white mb-1.5 transition-transform" id="bar1"></span>
             <span class="block w-5 h-px bg-white mb-1.5 transition-opacity" id="bar2"></span>
             <span class="block w-5 h-px bg-white transition-transform" id="bar3"></span>
@@ -209,15 +209,15 @@
         </div>
       </div>
       <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden-menu md:hidden absolute left-0 right-0 glass border-t border-indigo-500/20">
+      <div id="mobileMenu" class="hidden-menu md:hidden absolute left-0 right-0 glass border-t border-emerald-400/20">
         <div class="flex flex-col items-center text-center py-6 space-y-4 text-sm">
-          <a href="#about" class="hover:text-indigo-300 transition-colors">About</a>
-          <a href="#expertise" class="hover:text-indigo-300 transition-colors">Expertise</a>
-          <a href="#experience" class="hover:text-indigo-300 transition-colors">Experience</a>
-          <a href="#credentials" class="hover:text-indigo-300 transition-colors">Credentials</a>
-          <a href="#research" class="hover:text-indigo-300 transition-colors">Research</a>
-          <a href="#contact" class="hover:text-indigo-300 transition-colors">Contact</a>
-          <a href="#contact" class="border border-indigo-500/30 rounded-md px-5 py-2 hover:bg-indigo-500/10 transition-all">Book a Consultation</a>
+          <a href="#about" class="hover:text-emerald-300 transition-colors">About</a>
+          <a href="#expertise" class="hover:text-emerald-300 transition-colors">Expertise</a>
+          <a href="#experience" class="hover:text-emerald-300 transition-colors">Experience</a>
+          <a href="#credentials" class="hover:text-emerald-300 transition-colors">Credentials</a>
+          <a href="#research" class="hover:text-emerald-300 transition-colors">Research</a>
+          <a href="#contact" class="hover:text-emerald-300 transition-colors">Contact</a>
+          <a href="#contact" class="border border-emerald-400/30 rounded-md px-5 py-2 hover:bg-emerald-400/10 transition-all">Book a Consultation</a>
         </div>
       </div>
     </nav>
@@ -228,7 +228,7 @@
   <section id="home" class="content">
     <div class="container mx-auto px-6 py-20 md:py-32">
       <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs md:text-sm mb-6 reveal">MBBS &middot; MS (Gen. Surg) &middot; MRCS (Edin.) &middot; FRCS (Glasgow) &middot; FACS &middot; FSSO</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs md:text-sm mb-6 reveal">MBBS &middot; MS (Gen. Surg) &middot; MRCS (Edin.) &middot; FRCS (Glasgow) &middot; FACS &middot; FSSO</p>
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter mb-6 leading-tight reveal">
           <span class="gradient-text">Precision</span> in the fight against cancer
         </h1>
@@ -237,7 +237,7 @@
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
           <a href="#contact" class="bg-white text-black font-light rounded-md px-8 py-3 hover:bg-opacity-90 transition-all">Book a consultation</a>
-          <a href="#expertise" class="bg-transparent border border-indigo-500/30 rounded-md px-8 py-3 hover:bg-indigo-500/10 transition-all">Explore expertise</a>
+          <a href="#expertise" class="bg-transparent border border-emerald-400/30 rounded-md px-8 py-3 hover:bg-emerald-400/10 transition-all">Explore expertise</a>
         </div>
       </div>
 
@@ -269,7 +269,7 @@
   <section id="about" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">About</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">About</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-12 reveal">Meet <span class="gradient-text">Dr. Rohan Shetty</span></h2>
         <div class="flex flex-col md:flex-row items-center gap-12 justify-center">
           <div class="md:w-2/5 reveal">
@@ -285,7 +285,7 @@
               As an Associate Professor in the Department of Surgical Oncology at Yenepoya Medical College Hospital, he is a recognized guide for MCh postgraduates and PhD candidates, and a regular speaker at national conferences on surgical oncology, robotic surgery, and innovation in healthcare.
             </p>
             <p class="text-gray-300 text-lg font-extralight leading-relaxed">
-              Beyond the operating theatre, he is a passionate researcher and the co-founder of the startup <span class="text-indigo-300">Emys Bionics Pvt Ltd</span>, which develops patient-specific implants, surgical devices, and rehabilitation solutions for cancer patients. He is an ardent believer in cost-effective, patient-friendly treatment and has volunteered in numerous cancer awareness and screening camps.
+              Beyond the operating theatre, he is a passionate researcher and the co-founder of the startup <span class="text-emerald-300">Emys Bionics Pvt Ltd</span>, which develops patient-specific implants, surgical devices, and rehabilitation solutions for cancer patients. He is an ardent believer in cost-effective, patient-friendly treatment and has volunteered in numerous cancer awareness and screening camps.
             </p>
           </div>
         </div>
@@ -299,30 +299,30 @@
   <section id="expertise" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Expertise</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Expertise</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-12 reveal">Areas of <span class="gradient-text">specialisation</span></h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all reveal">
+          <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Head &amp; Neck Oncology</p>
             <p class="text-gray-400 font-extralight">Comprehensive surgical management of head and neck cancers</p>
           </div>
-          <div class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all reveal">
+          <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Breast Oncology</p>
             <p class="text-gray-400 font-extralight">Breast cancer surgery including sentinel lymph node mapping</p>
           </div>
-          <div class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all reveal">
+          <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">G.I. Oncology</p>
             <p class="text-gray-400 font-extralight">Gastrointestinal cancer surgery for all major organ systems</p>
           </div>
-          <div class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all reveal">
+          <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Urological &amp; Gynecological Oncology</p>
             <p class="text-gray-400 font-extralight">Surgical treatment of urological and gynecological cancers</p>
           </div>
-          <div class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all reveal">
+          <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Robotic &amp; Minimal Access Surgery</p>
             <p class="text-gray-400 font-extralight">Trained robotic surgeon performing robotic surgeries since 2016</p>
           </div>
-          <div class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all reveal">
+          <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Endoscopy &amp; Colonoscopy</p>
             <p class="text-gray-400 font-extralight">Skilled in upper G.I. endoscopy and colonoscopy</p>
           </div>
@@ -337,7 +337,7 @@
   <section class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Robotic Surgery</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Robotic Surgery</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">The future of surgery, <span class="gradient-text">today</span></h2>
         <p class="text-gray-300 text-lg font-extralight max-w-2xl mx-auto mb-12 reveal">
           Performing robotic and minimal access cancer surgeries since 2016, Dr. Shetty combines surgical precision with cutting-edge technology to offer patients faster recovery, less pain, and better outcomes.
@@ -362,13 +362,13 @@
   <section id="experience" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Experience</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Experience</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-14 reveal">Professional <span class="gradient-text">journey</span></h2>
 
         <div class="space-y-6">
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-indigo-300 text-sm tracking-widest mb-1">AUG 2008 &ndash; PRESENT</p>
+            <p class="text-emerald-300 text-sm tracking-widest mb-1">AUG 2008 &ndash; PRESENT</p>
             <p class="text-2xl font-light tracking-tight mb-1">Consultant Surgical Oncologist</p>
             <p class="text-gray-400 font-extralight mb-4">Mangalore, India</p>
             <p class="text-gray-300 font-extralight max-w-xl mx-auto">Practising surgical oncologist focusing on head &amp; neck, breast, G.I., urological and gynecological oncology. Over 5000 major and supra-major oncology surgeries performed independently. Skilled in upper G.I. endoscopy and colonoscopy, and regularly performing robotic surgeries since 2016.</p>
@@ -376,7 +376,7 @@
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-indigo-300 text-sm tracking-widest mb-1">OCT 2020 &ndash; PRESENT</p>
+            <p class="text-emerald-300 text-sm tracking-widest mb-1">OCT 2020 &ndash; PRESENT</p>
             <p class="text-2xl font-light tracking-tight mb-1">Associate Professor, Surgical Oncology</p>
             <p class="text-gray-400 font-extralight mb-4">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital, Mangalore</p>
             <p class="text-gray-300 font-extralight max-w-xl mx-auto">OPD consultations, preoperative work-up, surgery and postoperative care of cancer patients. Performing complex surgical oncology work and robotic &amp; minimal access surgeries. Training MCh Surgical Oncology postgraduates, mentoring PhD candidates, and serving as Principal Investigator and Co-Investigator in research projects and clinical trials.</p>
@@ -384,14 +384,14 @@
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-indigo-300 text-sm tracking-widest mb-1">APR 2016 &ndash; OCT 2020</p>
+            <p class="text-emerald-300 text-sm tracking-widest mb-1">APR 2016 &ndash; OCT 2020</p>
             <p class="text-2xl font-light tracking-tight mb-1">Assistant Professor, Surgical Oncology</p>
             <p class="text-gray-400 font-extralight">Yenepoya Medical College Hospital, Mangalore</p>
           </div>
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-indigo-300 text-sm tracking-widest mb-1">SEP 2013 &ndash; APR 2016</p>
+            <p class="text-emerald-300 text-sm tracking-widest mb-1">SEP 2013 &ndash; APR 2016</p>
             <p class="text-2xl font-light tracking-tight mb-1">Associate Professor, General Surgery</p>
             <p class="text-gray-400 font-extralight mb-4">KS Hegde Medical Academy, Mangalore</p>
             <p class="text-gray-300 font-extralight max-w-xl mx-auto">Surgical oncology work, general surgery procedures, undergraduate and postgraduate training, and postgraduate guide.</p>
@@ -399,7 +399,7 @@
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-indigo-300 text-sm tracking-widest mb-1">SEP 2008 &ndash; SEP 2013</p>
+            <p class="text-emerald-300 text-sm tracking-widest mb-1">SEP 2008 &ndash; SEP 2013</p>
             <p class="text-2xl font-light tracking-tight mb-1">Assistant Professor, General Surgery</p>
             <p class="text-gray-400 font-extralight">KS Hegde Medical Academy, Mangalore</p>
           </div>
@@ -414,7 +414,7 @@
   <section id="credentials" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Credentials</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Credentials</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-14 reveal">Education, fellowships <span class="gradient-text">&amp; honours</span></h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -444,19 +444,19 @@
             <h3 class="text-2xl font-light tracking-tight mb-6 gradient-text">Fellowships &amp; Memberships</h3>
             <div class="space-y-6">
               <div>
-                <p class="text-lg font-light">FSSO <span class="text-indigo-300 text-sm">2024</span></p>
+                <p class="text-lg font-light">FSSO <span class="text-emerald-300 text-sm">2024</span></p>
                 <p class="text-gray-400 font-extralight">Fellow of the Society of Surgical Oncology, USA</p>
               </div>
               <div>
-                <p class="text-lg font-light">FACS <span class="text-indigo-300 text-sm">2021</span></p>
+                <p class="text-lg font-light">FACS <span class="text-emerald-300 text-sm">2021</span></p>
                 <p class="text-gray-400 font-extralight">Fellow of the American College of Surgeons</p>
               </div>
               <div>
-                <p class="text-lg font-light">FRCS <span class="text-indigo-300 text-sm">2021</span></p>
+                <p class="text-lg font-light">FRCS <span class="text-emerald-300 text-sm">2021</span></p>
                 <p class="text-gray-400 font-extralight">Royal College of Physicians and Surgeons of Glasgow, UK</p>
               </div>
               <div>
-                <p class="text-lg font-light">MRCS <span class="text-indigo-300 text-sm">2011</span></p>
+                <p class="text-lg font-light">MRCS <span class="text-emerald-300 text-sm">2011</span></p>
                 <p class="text-gray-400 font-extralight">Royal College of Surgeons of Edinburgh, UK</p>
               </div>
             </div>
@@ -466,9 +466,9 @@
         <div class="glass rounded-2xl p-8 text-center reveal">
           <h3 class="text-2xl font-light tracking-tight mb-6 gradient-text">Professional Affiliations</h3>
           <div class="flex flex-wrap justify-center gap-3">
-            <span class="border border-indigo-500/30 rounded-full px-5 py-2 text-sm font-extralight">Indian Medical Association (IMA)</span>
-            <span class="border border-indigo-500/30 rounded-full px-5 py-2 text-sm font-extralight">Association of Surgeons of India (ASI)</span>
-            <span class="border border-indigo-500/30 rounded-full px-5 py-2 text-sm font-extralight">Indian Association of Surgical Oncology (IASO)</span>
+            <span class="border border-emerald-400/30 rounded-full px-5 py-2 text-sm font-extralight">Indian Medical Association (IMA)</span>
+            <span class="border border-emerald-400/30 rounded-full px-5 py-2 text-sm font-extralight">Association of Surgeons of India (ASI)</span>
+            <span class="border border-emerald-400/30 rounded-full px-5 py-2 text-sm font-extralight">Indian Association of Surgical Oncology (IASO)</span>
           </div>
         </div>
       </div>
@@ -481,7 +481,7 @@
   <section id="research" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Research &amp; Innovation</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Research &amp; Innovation</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">Advancing <span class="gradient-text">cancer science</span></h2>
         <p class="text-gray-300 text-lg font-extralight max-w-2xl mx-auto mb-14 reveal">
           Actively involved in basic science projects, clinical research and clinical trials, with 25+ peer-reviewed publications spanning robotic surgery, cancer epidemiology, proteogenomics and molecular oncology.
@@ -602,7 +602,7 @@
   <section id="community" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-4xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Community</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Community</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-14 reveal">Giving <span class="gradient-text">back</span></h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="glass rounded-2xl p-8 text-center reveal">
@@ -628,31 +628,31 @@
   <section id="contact" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-indigo-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Contact</p>
+        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Contact</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">Book a <span class="gradient-text">consultation</span></h2>
         <p class="text-gray-300 text-lg font-extralight mb-12 reveal">For appointments, second opinions, or professional enquiries, reach out directly.</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-          <a href="tel:+919845603685" class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all block reveal">
-            <p class="text-indigo-300 text-sm tracking-widest mb-2">PHONE</p>
+          <a href="tel:+919845603685" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
+            <p class="text-emerald-300 text-sm tracking-widest mb-2">PHONE</p>
             <p class="text-xl font-light">+91 98456 03685</p>
           </a>
-          <a href="mailto:shettyrohan@rediffmail.com" class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all block reveal">
-            <p class="text-indigo-300 text-sm tracking-widest mb-2">EMAIL</p>
+          <a href="mailto:shettyrohan@rediffmail.com" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
+            <p class="text-emerald-300 text-sm tracking-widest mb-2">EMAIL</p>
             <p class="text-xl font-light break-all">shettyrohan@rediffmail.com</p>
           </a>
-          <a href="https://www.linkedin.com/in/rohan-shetty-8aa92219/" target="_blank" rel="noopener" class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all block reveal">
-            <p class="text-indigo-300 text-sm tracking-widest mb-2">LINKEDIN</p>
+          <a href="https://www.linkedin.com/in/rohan-shetty-8aa92219/" target="_blank" rel="noopener" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
+            <p class="text-emerald-300 text-sm tracking-widest mb-2">LINKEDIN</p>
             <p class="text-xl font-light">Connect professionally</p>
           </a>
-          <a href="https://www.facebook.com/share/1Bfi6kkKQW/?mibextid=wwXIfr" target="_blank" rel="noopener" class="glass rounded-2xl p-8 text-center hover:border-indigo-400/40 transition-all block reveal">
-            <p class="text-indigo-300 text-sm tracking-widest mb-2">FACEBOOK</p>
+          <a href="https://www.facebook.com/share/1Bfi6kkKQW/?mibextid=wwXIfr" target="_blank" rel="noopener" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
+            <p class="text-emerald-300 text-sm tracking-widest mb-2">FACEBOOK</p>
             <p class="text-xl font-light">Follow on Facebook</p>
           </a>
         </div>
 
         <div class="glass rounded-2xl p-8 text-center reveal">
-          <p class="text-indigo-300 text-sm tracking-widest mb-2">LOCATION</p>
+          <p class="text-emerald-300 text-sm tracking-widest mb-2">LOCATION</p>
           <p class="text-xl font-light mb-1">Mangalore, Karnataka, India 575004</p>
           <p class="text-gray-400 font-extralight">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital</p>
         </div>
