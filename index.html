@@ -94,7 +94,28 @@
       width: 100%;
       height: 100vh;
       z-index: 0;
-      background: radial-gradient(ellipse at 50% 30%, rgba(99,102,241,0.18), transparent 60%), #000;
+      overflow: hidden;
+      background: #000;
+    }
+    .spline-container::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(42% 42% at 22% 25%, rgba(167,243,208,0.32), transparent 70%),
+        radial-gradient(38% 38% at 78% 18%, rgba(255,255,255,0.14), transparent 70%),
+        radial-gradient(48% 48% at 50% 82%, rgba(110,231,183,0.22), transparent 70%);
+      filter: blur(60px);
+      animation: auroraDrift 20s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    @keyframes auroraDrift {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      50%  { transform: translate3d(2%, -3%, 0) scale(1.08); }
+      100% { transform: translate3d(-3%, 2%, 0) scale(1.02); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .spline-container::before { animation: none; }
     }
     .spline-container::after {
       content: '';
@@ -102,13 +123,6 @@
       inset: 0;
       background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.85) 90%, #000 100%);
       pointer-events: none;
-    }
-    .spline-container iframe {
-      opacity: 0;
-      transition: opacity 1.2s ease;
-    }
-    .spline-container iframe.loaded {
-      opacity: 1;
     }
     .content { position: relative; z-index: 10; }
     .glass {
@@ -156,17 +170,12 @@
     .pub-list::-webkit-scrollbar { width: 5px; }
     .pub-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 8px; }
     .pub-list::-webkit-scrollbar-thumb { background: rgba(129,140,248,0.4); border-radius: 8px; }
-    @media (max-width: 768px) {
-      .spline-container iframe { display: none; }
-    }
   </style>
 </head>
 <body class="bg-black text-white font-light antialiased">
 
-  <!-- Spline background (desktop) with gradient fallback (mobile) -->
-  <div class="spline-container" aria-hidden="true">
-    <iframe id="splineFrame" data-src="https://my.spline.design/retrofuturismbganimation-Lb3VtL1bNaYUnirKNzn0FvaW/" frameborder="0" width="100%" height="100%" title="Background animation"></iframe>
-  </div>
+  <!-- Ambient animated gradient background (pure CSS, no external dependency) -->
+  <div class="spline-container" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="content sticky top-0 z-50">
@@ -713,22 +722,6 @@
     document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Defer the heavy Spline 3D background so it never blocks first paint or the mobile connection.
-    const splineFrame = document.getElementById('splineFrame');
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (splineFrame && !isMobile) {
-      const loadSpline = () => {
-        if (splineFrame.src) return;
-        splineFrame.src = splineFrame.dataset.src;
-        splineFrame.addEventListener('load', () => splineFrame.classList.add('loaded'), { once: true });
-      };
-      if (document.readyState === 'complete') {
-        setTimeout(loadSpline, 1200);
-      } else {
-        window.addEventListener('load', () => setTimeout(loadSpline, 1200));
-      }
-    }
   </script>
 </body>
 </html>
