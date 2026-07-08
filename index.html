@@ -30,7 +30,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -73,7 +73,7 @@
   }
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://my.spline.design">
@@ -87,17 +87,19 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      background: #000;
+      background: #ffffff;
+      color: #111827;
+    }
+    #home {
+      position: relative;
+      overflow: hidden;
+      background: #04120c;
     }
     .spline-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
+      position: absolute;
+      inset: 0;
       z-index: 0;
       overflow: hidden;
-      background: #000;
     }
     .spline-container::before {
       content: '';
@@ -123,7 +125,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.85) 90%, #000 100%);
+      background: linear-gradient(to bottom, transparent 45%, rgba(255,255,255,0.92) 92%, #ffffff 100%);
       pointer-events: none;
       z-index: 2;
     }
@@ -140,17 +142,18 @@
     }
     .content { position: relative; z-index: 10; }
     .glass {
-      background: rgba(10, 10, 18, 0.55);
+      background: rgba(255, 255, 255, 0.78);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(129, 140, 248, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.18);
+      box-shadow: 0 4px 24px rgba(16, 129, 80, 0.06);
     }
     .glow-line {
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(110,231,183,0.35), transparent);
+      background: linear-gradient(to right, transparent, rgba(16,185,129,0.4), transparent);
     }
     .gradient-text {
-      background: linear-gradient(to right, #6ee7b7, #ffffff);
+      background: linear-gradient(to right, #059669, #34d399);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -170,8 +173,8 @@
     }
     .timeline-dot {
       width: 11px; height: 11px; border-radius: 9999px;
-      background: linear-gradient(135deg, #6ee7b7, #ffffff);
-      box-shadow: 0 0 14px rgba(110,231,183,0.8);
+      background: linear-gradient(135deg, #10b981, #047857);
+      box-shadow: 0 0 14px rgba(16,185,129,0.6);
     }
     #mobileMenu {
       transition: opacity 0.3s ease, transform 0.3s ease;
@@ -182,16 +185,11 @@
       pointer-events: none;
     }
     .pub-list::-webkit-scrollbar { width: 5px; }
-    .pub-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 8px; }
-    .pub-list::-webkit-scrollbar-thumb { background: rgba(110,231,183,0.4); border-radius: 8px; }
+    .pub-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 8px; }
+    .pub-list::-webkit-scrollbar-thumb { background: rgba(16,185,129,0.4); border-radius: 8px; }
   </style>
 </head>
-<body class="bg-black text-white font-light antialiased">
-
-  <!-- Ambient CSS glow loads instantly; Spline 3D scene (recolored green) fades in on top once ready -->
-  <div class="spline-container" aria-hidden="true">
-    <iframe id="splineFrame" data-src="https://my.spline.design/retrofuturismbganimation-Lb3VtL1bNaYUnirKNzn0FvaW/" frameborder="0" width="100%" height="100%" title="Background animation"></iframe>
-  </div>
+<body class="bg-white text-gray-900 font-light antialiased">
 
   <!-- Navigation -->
   <header class="content sticky top-0 z-50">
@@ -199,41 +197,41 @@
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <a href="#home" class="flex items-center" aria-label="Dr. Rohan Shetty home">
-            <svg class="h-8 w-8 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <svg class="h-8 w-8 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-2.6-8-6.2-8-10.4C4 7.5 6 5.5 8.5 5.5c1.4 0 2.7.7 3.5 1.8.8-1.1 2.1-1.8 3.5-1.8C18 5.5 20 7.5 20 10.6c0 4.2-3.5 7.8-8 10.4z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12h2l1-2 1.5 4 1-2h1.5"></path>
             </svg>
             <span class="ml-3 text-lg md:text-xl tracking-tight font-medium">Dr. Rohan Shetty</span>
           </a>
           <div class="hidden md:flex space-x-8 text-sm">
-            <a href="#about" class="hover:text-emerald-300 transition-colors">About</a>
-            <a href="#expertise" class="hover:text-emerald-300 transition-colors">Expertise</a>
-            <a href="#experience" class="hover:text-emerald-300 transition-colors">Experience</a>
-            <a href="#credentials" class="hover:text-emerald-300 transition-colors">Credentials</a>
-            <a href="#research" class="hover:text-emerald-300 transition-colors">Research</a>
-            <a href="#contact" class="hover:text-emerald-300 transition-colors">Contact</a>
+            <a href="#about" class="hover:text-emerald-600 transition-colors">About</a>
+            <a href="#expertise" class="hover:text-emerald-600 transition-colors">Expertise</a>
+            <a href="#experience" class="hover:text-emerald-600 transition-colors">Experience</a>
+            <a href="#credentials" class="hover:text-emerald-600 transition-colors">Credentials</a>
+            <a href="#research" class="hover:text-emerald-600 transition-colors">Research</a>
+            <a href="#contact" class="hover:text-emerald-600 transition-colors">Contact</a>
           </div>
           <div class="hidden md:block">
-            <a href="#contact" class="text-sm border border-emerald-400/30 rounded-md px-4 py-2 hover:bg-emerald-400/10 transition-all">Book a Consultation</a>
+            <a href="#contact" class="text-sm border border-emerald-500/40 rounded-md px-4 py-2 hover:bg-emerald-500/10 transition-all">Book a Consultation</a>
           </div>
           <!-- Hamburger -->
-          <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md border border-emerald-400/30" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-            <span class="block w-5 h-px bg-white mb-1.5 transition-transform" id="bar1"></span>
-            <span class="block w-5 h-px bg-white mb-1.5 transition-opacity" id="bar2"></span>
-            <span class="block w-5 h-px bg-white transition-transform" id="bar3"></span>
+          <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md border border-emerald-500/40" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="block w-5 h-px bg-gray-900 mb-1.5 transition-transform" id="bar1"></span>
+            <span class="block w-5 h-px bg-gray-900 mb-1.5 transition-opacity" id="bar2"></span>
+            <span class="block w-5 h-px bg-gray-900 transition-transform" id="bar3"></span>
           </button>
         </div>
       </div>
       <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden-menu md:hidden absolute left-0 right-0 glass border-t border-emerald-400/20">
+      <div id="mobileMenu" class="hidden-menu md:hidden absolute left-0 right-0 glass border-t border-emerald-500/30">
         <div class="flex flex-col items-center text-center py-6 space-y-4 text-sm">
-          <a href="#about" class="hover:text-emerald-300 transition-colors">About</a>
-          <a href="#expertise" class="hover:text-emerald-300 transition-colors">Expertise</a>
-          <a href="#experience" class="hover:text-emerald-300 transition-colors">Experience</a>
-          <a href="#credentials" class="hover:text-emerald-300 transition-colors">Credentials</a>
-          <a href="#research" class="hover:text-emerald-300 transition-colors">Research</a>
-          <a href="#contact" class="hover:text-emerald-300 transition-colors">Contact</a>
-          <a href="#contact" class="border border-emerald-400/30 rounded-md px-5 py-2 hover:bg-emerald-400/10 transition-all">Book a Consultation</a>
+          <a href="#about" class="hover:text-emerald-600 transition-colors">About</a>
+          <a href="#expertise" class="hover:text-emerald-600 transition-colors">Expertise</a>
+          <a href="#experience" class="hover:text-emerald-600 transition-colors">Experience</a>
+          <a href="#credentials" class="hover:text-emerald-600 transition-colors">Credentials</a>
+          <a href="#research" class="hover:text-emerald-600 transition-colors">Research</a>
+          <a href="#contact" class="hover:text-emerald-600 transition-colors">Contact</a>
+          <a href="#contact" class="border border-emerald-500/40 rounded-md px-5 py-2 hover:bg-emerald-500/10 transition-all">Book a Consultation</a>
         </div>
       </div>
     </nav>
@@ -241,8 +239,12 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="content">
-    <div class="container mx-auto px-6 py-20 md:py-32">
+  <section id="home" class="relative overflow-hidden text-white min-h-screen flex items-center">
+    <!-- Ambient CSS glow loads instantly; Spline 3D scene (recolored green) fades in on top once ready -->
+    <div class="spline-container" aria-hidden="true">
+      <iframe id="splineFrame" data-src="https://my.spline.design/retrofuturismbganimation-Lb3VtL1bNaYUnirKNzn0FvaW/" frameborder="0" width="100%" height="100%" title="Background animation"></iframe>
+    </div>
+    <div class="container relative z-10 mx-auto px-6 py-20 md:py-32">
       <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
         <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs md:text-sm mb-6 reveal">MBBS &middot; MS (Gen. Surg) &middot; MRCS (Edin.) &middot; FRCS (Glasgow) &middot; FACS &middot; FSSO</p>
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter mb-6 leading-tight reveal">
@@ -285,7 +287,7 @@
   <section id="about" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">About</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">About</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-12 reveal">Meet <span class="gradient-text">Dr. Rohan Shetty</span></h2>
         <div class="flex flex-col md:flex-row items-center gap-12 justify-center">
           <div class="md:w-2/5 reveal">
@@ -297,14 +299,14 @@
             </div>
           </div>
           <div class="md:w-3/5 text-center md:text-left reveal">
-            <p class="text-gray-300 text-lg font-extralight leading-relaxed mb-6">
+            <p class="text-gray-600 text-lg font-extralight leading-relaxed mb-6">
               Dr. Rohan Shetty is an established surgical oncologist in Mangalore with more than 16 years of experience, focusing on complex cancer surgeries involving all major organ systems. A trained robotic surgeon since 2016, he regularly performs robotic and minimal access surgeries.
             </p>
-            <p class="text-gray-300 text-lg font-extralight leading-relaxed mb-6">
+            <p class="text-gray-600 text-lg font-extralight leading-relaxed mb-6">
               As an Associate Professor in the Department of Surgical Oncology at Yenepoya Medical College Hospital, he is a recognized guide for MCh postgraduates and PhD candidates, and a regular speaker at national conferences on surgical oncology, robotic surgery, and innovation in healthcare.
             </p>
-            <p class="text-gray-300 text-lg font-extralight leading-relaxed">
-              Beyond the operating theatre, he is a passionate researcher and the co-founder of the startup <span class="text-emerald-300">Emys Bionics Pvt Ltd</span>, which develops patient-specific implants, surgical devices, and rehabilitation solutions for cancer patients. He is an ardent believer in cost-effective, patient-friendly treatment and has volunteered in numerous cancer awareness and screening camps.
+            <p class="text-gray-600 text-lg font-extralight leading-relaxed">
+              Beyond the operating theatre, he is a passionate researcher and the co-founder of the startup <span class="text-emerald-600">Emys Bionics Pvt Ltd</span>, which develops patient-specific implants, surgical devices, and rehabilitation solutions for cancer patients. He is an ardent believer in cost-effective, patient-friendly treatment and has volunteered in numerous cancer awareness and screening camps.
             </p>
           </div>
         </div>
@@ -318,32 +320,32 @@
   <section id="expertise" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Expertise</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Expertise</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-12 reveal">Areas of <span class="gradient-text">specialisation</span></h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Head &amp; Neck Oncology</p>
-            <p class="text-gray-400 font-extralight">Comprehensive surgical management of head and neck cancers</p>
+            <p class="text-gray-500 font-extralight">Comprehensive surgical management of head and neck cancers</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Breast Oncology</p>
-            <p class="text-gray-400 font-extralight">Breast cancer surgery including sentinel lymph node mapping</p>
+            <p class="text-gray-500 font-extralight">Breast cancer surgery including sentinel lymph node mapping</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">G.I. Oncology</p>
-            <p class="text-gray-400 font-extralight">Gastrointestinal cancer surgery for all major organ systems</p>
+            <p class="text-gray-500 font-extralight">Gastrointestinal cancer surgery for all major organ systems</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Urological &amp; Gynecological Oncology</p>
-            <p class="text-gray-400 font-extralight">Surgical treatment of urological and gynecological cancers</p>
+            <p class="text-gray-500 font-extralight">Surgical treatment of urological and gynecological cancers</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Robotic &amp; Minimal Access Surgery</p>
-            <p class="text-gray-400 font-extralight">Trained robotic surgeon performing robotic surgeries since 2016</p>
+            <p class="text-gray-500 font-extralight">Trained robotic surgeon performing robotic surgeries since 2016</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all reveal">
             <p class="text-2xl font-light mb-2 tracking-tight">Endoscopy &amp; Colonoscopy</p>
-            <p class="text-gray-400 font-extralight">Skilled in upper G.I. endoscopy and colonoscopy</p>
+            <p class="text-gray-500 font-extralight">Skilled in upper G.I. endoscopy and colonoscopy</p>
           </div>
         </div>
       </div>
@@ -356,9 +358,9 @@
   <section class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Robotic Surgery</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Robotic Surgery</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">The future of surgery, <span class="gradient-text">today</span></h2>
-        <p class="text-gray-300 text-lg font-extralight max-w-2xl mx-auto mb-12 reveal">
+        <p class="text-gray-600 text-lg font-extralight max-w-2xl mx-auto mb-12 reveal">
           Performing robotic and minimal access cancer surgeries since 2016, Dr. Shetty combines surgical precision with cutting-edge technology to offer patients faster recovery, less pain, and better outcomes.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -367,14 +369,14 @@
               <source srcset="assets/dr-rohan-shetty-ssi-mantra-console.webp" type="image/webp">
               <img src="assets/dr-rohan-shetty-ssi-mantra-console.jpg" alt="Dr. Rohan Shetty operating the SSI Mantra robotic surgery console" class="w-full h-72 md:h-96 object-cover" loading="lazy" width="1200" height="1600">
             </picture>
-            <p class="text-gray-400 font-extralight text-sm py-4 px-6 text-center">At the SSI Mantra robotic surgical console</p>
+            <p class="text-gray-500 font-extralight text-sm py-4 px-6 text-center">At the SSI Mantra robotic surgical console</p>
           </div>
           <div class="glass rounded-2xl overflow-hidden reveal">
             <picture>
               <source srcset="assets/dr-rohan-shetty-robotic-surgeon.webp" type="image/webp">
               <img src="assets/dr-rohan-shetty-robotic-surgeon.jpg" alt="Dr. Rohan Shetty with an advanced robotic surgery training system" class="w-full h-72 md:h-96 object-cover object-top" loading="lazy" width="1200" height="1600">
             </picture>
-            <p class="text-gray-400 font-extralight text-sm py-4 px-6 text-center">With an advanced robotic surgical system</p>
+            <p class="text-gray-500 font-extralight text-sm py-4 px-6 text-center">With an advanced robotic surgical system</p>
           </div>
         </div>
       </div>
@@ -387,46 +389,46 @@
   <section id="experience" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Experience</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Experience</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-14 reveal">Professional <span class="gradient-text">journey</span></h2>
 
         <div class="space-y-6">
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-emerald-300 text-sm tracking-widest mb-1">AUG 2008 &ndash; PRESENT</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-1">AUG 2008 &ndash; PRESENT</p>
             <p class="text-2xl font-light tracking-tight mb-1">Consultant Surgical Oncologist</p>
-            <p class="text-gray-400 font-extralight mb-4">Mangalore, India</p>
-            <p class="text-gray-300 font-extralight max-w-xl mx-auto">Practising surgical oncologist focusing on head &amp; neck, breast, G.I., urological and gynecological oncology. Over 5000 major and supra-major oncology surgeries performed independently. Skilled in upper G.I. endoscopy and colonoscopy, and regularly performing robotic surgeries since 2016.</p>
+            <p class="text-gray-500 font-extralight mb-4">Mangalore, India</p>
+            <p class="text-gray-600 font-extralight max-w-xl mx-auto">Practising surgical oncologist focusing on head &amp; neck, breast, G.I., urological and gynecological oncology. Over 5000 major and supra-major oncology surgeries performed independently. Skilled in upper G.I. endoscopy and colonoscopy, and regularly performing robotic surgeries since 2016.</p>
           </div>
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-emerald-300 text-sm tracking-widest mb-1">OCT 2020 &ndash; PRESENT</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-1">OCT 2020 &ndash; PRESENT</p>
             <p class="text-2xl font-light tracking-tight mb-1">Associate Professor, Surgical Oncology</p>
-            <p class="text-gray-400 font-extralight mb-4">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital, Mangalore</p>
-            <p class="text-gray-300 font-extralight max-w-xl mx-auto">OPD consultations, preoperative work-up, surgery and postoperative care of cancer patients. Performing complex surgical oncology work and robotic &amp; minimal access surgeries. Training MCh Surgical Oncology postgraduates, mentoring PhD candidates, and serving as Principal Investigator and Co-Investigator in research projects and clinical trials.</p>
+            <p class="text-gray-500 font-extralight mb-4">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital, Mangalore</p>
+            <p class="text-gray-600 font-extralight max-w-xl mx-auto">OPD consultations, preoperative work-up, surgery and postoperative care of cancer patients. Performing complex surgical oncology work and robotic &amp; minimal access surgeries. Training MCh Surgical Oncology postgraduates, mentoring PhD candidates, and serving as Principal Investigator and Co-Investigator in research projects and clinical trials.</p>
           </div>
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-emerald-300 text-sm tracking-widest mb-1">APR 2016 &ndash; OCT 2020</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-1">APR 2016 &ndash; OCT 2020</p>
             <p class="text-2xl font-light tracking-tight mb-1">Assistant Professor, Surgical Oncology</p>
-            <p class="text-gray-400 font-extralight">Yenepoya Medical College Hospital, Mangalore</p>
+            <p class="text-gray-500 font-extralight">Yenepoya Medical College Hospital, Mangalore</p>
           </div>
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-emerald-300 text-sm tracking-widest mb-1">SEP 2013 &ndash; APR 2016</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-1">SEP 2013 &ndash; APR 2016</p>
             <p class="text-2xl font-light tracking-tight mb-1">Associate Professor, General Surgery</p>
-            <p class="text-gray-400 font-extralight mb-4">KS Hegde Medical Academy, Mangalore</p>
-            <p class="text-gray-300 font-extralight max-w-xl mx-auto">Surgical oncology work, general surgery procedures, undergraduate and postgraduate training, and postgraduate guide.</p>
+            <p class="text-gray-500 font-extralight mb-4">KS Hegde Medical Academy, Mangalore</p>
+            <p class="text-gray-600 font-extralight max-w-xl mx-auto">Surgical oncology work, general surgery procedures, undergraduate and postgraduate training, and postgraduate guide.</p>
           </div>
 
           <div class="glass rounded-2xl p-8 text-center reveal">
             <div class="flex justify-center mb-3"><span class="timeline-dot"></span></div>
-            <p class="text-emerald-300 text-sm tracking-widest mb-1">SEP 2008 &ndash; SEP 2013</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-1">SEP 2008 &ndash; SEP 2013</p>
             <p class="text-2xl font-light tracking-tight mb-1">Assistant Professor, General Surgery</p>
-            <p class="text-gray-400 font-extralight">KS Hegde Medical Academy, Mangalore</p>
+            <p class="text-gray-500 font-extralight">KS Hegde Medical Academy, Mangalore</p>
           </div>
         </div>
       </div>
@@ -439,7 +441,7 @@
   <section id="credentials" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Credentials</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Credentials</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-14 reveal">Education, fellowships <span class="gradient-text">&amp; honours</span></h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -448,19 +450,19 @@
             <div class="space-y-6">
               <div>
                 <p class="text-lg font-light">MBBS</p>
-                <p class="text-gray-400 font-extralight">Sri Devraj Medical College, Kolar, India</p>
+                <p class="text-gray-500 font-extralight">Sri Devraj Medical College, Kolar, India</p>
               </div>
               <div>
                 <p class="text-lg font-light">Master of Surgery (General Surgery)</p>
-                <p class="text-gray-400 font-extralight">Father Muller Medical College, Mangalore, India</p>
+                <p class="text-gray-500 font-extralight">Father Muller Medical College, Mangalore, India</p>
               </div>
               <div>
                 <p class="text-lg font-light">Senior Residency, Surgical Oncology</p>
-                <p class="text-gray-400 font-extralight">Kidwai Memorial Institute of Oncology, Bengaluru, India</p>
+                <p class="text-gray-500 font-extralight">Kidwai Memorial Institute of Oncology, Bengaluru, India</p>
               </div>
               <div>
                 <p class="text-lg font-light">Introduction to Genomic Technologies (2020)</p>
-                <p class="text-gray-400 font-extralight">Johns Hopkins University, online course</p>
+                <p class="text-gray-500 font-extralight">Johns Hopkins University, online course</p>
               </div>
             </div>
           </div>
@@ -469,20 +471,20 @@
             <h3 class="text-2xl font-light tracking-tight mb-6 gradient-text">Fellowships &amp; Memberships</h3>
             <div class="space-y-6">
               <div>
-                <p class="text-lg font-light">FSSO <span class="text-emerald-300 text-sm">2024</span></p>
-                <p class="text-gray-400 font-extralight">Fellow of the Society of Surgical Oncology, USA</p>
+                <p class="text-lg font-light">FSSO <span class="text-emerald-600 text-sm">2024</span></p>
+                <p class="text-gray-500 font-extralight">Fellow of the Society of Surgical Oncology, USA</p>
               </div>
               <div>
-                <p class="text-lg font-light">FACS <span class="text-emerald-300 text-sm">2021</span></p>
-                <p class="text-gray-400 font-extralight">Fellow of the American College of Surgeons</p>
+                <p class="text-lg font-light">FACS <span class="text-emerald-600 text-sm">2021</span></p>
+                <p class="text-gray-500 font-extralight">Fellow of the American College of Surgeons</p>
               </div>
               <div>
-                <p class="text-lg font-light">FRCS <span class="text-emerald-300 text-sm">2021</span></p>
-                <p class="text-gray-400 font-extralight">Royal College of Physicians and Surgeons of Glasgow, UK</p>
+                <p class="text-lg font-light">FRCS <span class="text-emerald-600 text-sm">2021</span></p>
+                <p class="text-gray-500 font-extralight">Royal College of Physicians and Surgeons of Glasgow, UK</p>
               </div>
               <div>
-                <p class="text-lg font-light">MRCS <span class="text-emerald-300 text-sm">2011</span></p>
-                <p class="text-gray-400 font-extralight">Royal College of Surgeons of Edinburgh, UK</p>
+                <p class="text-lg font-light">MRCS <span class="text-emerald-600 text-sm">2011</span></p>
+                <p class="text-gray-500 font-extralight">Royal College of Surgeons of Edinburgh, UK</p>
               </div>
             </div>
           </div>
@@ -491,9 +493,9 @@
         <div class="glass rounded-2xl p-8 text-center reveal">
           <h3 class="text-2xl font-light tracking-tight mb-6 gradient-text">Professional Affiliations</h3>
           <div class="flex flex-wrap justify-center gap-3">
-            <span class="border border-emerald-400/30 rounded-full px-5 py-2 text-sm font-extralight">Indian Medical Association (IMA)</span>
-            <span class="border border-emerald-400/30 rounded-full px-5 py-2 text-sm font-extralight">Association of Surgeons of India (ASI)</span>
-            <span class="border border-emerald-400/30 rounded-full px-5 py-2 text-sm font-extralight">Indian Association of Surgical Oncology (IASO)</span>
+            <span class="border border-emerald-500/40 rounded-full px-5 py-2 text-sm font-extralight">Indian Medical Association (IMA)</span>
+            <span class="border border-emerald-500/40 rounded-full px-5 py-2 text-sm font-extralight">Association of Surgeons of India (ASI)</span>
+            <span class="border border-emerald-500/40 rounded-full px-5 py-2 text-sm font-extralight">Indian Association of Surgical Oncology (IASO)</span>
           </div>
         </div>
       </div>
@@ -506,9 +508,9 @@
   <section id="research" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Research &amp; Innovation</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Research &amp; Innovation</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">Advancing <span class="gradient-text">cancer science</span></h2>
-        <p class="text-gray-300 text-lg font-extralight max-w-2xl mx-auto mb-14 reveal">
+        <p class="text-gray-600 text-lg font-extralight max-w-2xl mx-auto mb-14 reveal">
           Actively involved in basic science projects, clinical research and clinical trials, with 25+ peer-reviewed publications spanning robotic surgery, cancer epidemiology, proteogenomics and molecular oncology.
         </p>
 
@@ -516,11 +518,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div class="glass rounded-2xl p-8 text-center reveal">
             <h3 class="text-2xl font-light tracking-tight mb-3 gradient-text">Emys Bionics Pvt Ltd</h3>
-            <p class="text-gray-300 font-extralight">Co-founder of a healthcare startup developing patient-specific implants, surgical devices, and innovative solutions for post-treatment rehabilitation of cancer patients.</p>
+            <p class="text-gray-600 font-extralight">Co-founder of a healthcare startup developing patient-specific implants, surgical devices, and innovative solutions for post-treatment rehabilitation of cancer patients.</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center reveal">
             <h3 class="text-2xl font-light tracking-tight mb-3 gradient-text">EasyStoma</h3>
-            <p class="text-gray-300 font-extralight">Principal Investigator of a novel colostomy appliance system, funded by the Elevate 2023 Grant from the Karnataka Start-up Cell.</p>
+            <p class="text-gray-600 font-extralight">Principal Investigator of a novel colostomy appliance system, funded by the Elevate 2023 Grant from the Karnataka Start-up Cell.</p>
           </div>
         </div>
 
@@ -530,15 +532,15 @@
           <div class="space-y-5 max-w-2xl mx-auto">
             <div>
               <p class="font-light">Clinical and functional assessment of PEEK-based implants for craniofacial reconstruction</p>
-              <p class="text-gray-400 font-extralight text-sm">Ongoing &middot; Atal New India Challenge &middot; Co-Investigator</p>
+              <p class="text-gray-500 font-extralight text-sm">Ongoing &middot; Atal New India Challenge &middot; Co-Investigator</p>
             </div>
             <div>
               <p class="font-light">GlobalSurg-CovidSurg Week: optimal timing for surgery following SARS-CoV-2 infection</p>
-              <p class="text-gray-400 font-extralight text-sm">Completed &middot; NIHR Global Health Research Unit on Global Surgery &middot; Collaborator</p>
+              <p class="text-gray-500 font-extralight text-sm">Completed &middot; NIHR Global Health Research Unit on Global Surgery &middot; Collaborator</p>
             </div>
             <div>
               <p class="font-light">Outcomes of surgery in COVID-19 infection: India Cohort Study (CovidSurg India)</p>
-              <p class="text-gray-400 font-extralight text-sm">Completed &middot; NIHR Global Health Research Unit on Global Surgery &middot; Collaborator</p>
+              <p class="text-gray-500 font-extralight text-sm">Completed &middot; NIHR Global Health Research Unit on Global Surgery &middot; Collaborator</p>
             </div>
           </div>
         </div>
@@ -549,30 +551,30 @@
           <div class="space-y-5 max-w-2xl mx-auto">
             <div>
               <p class="font-light">3D-printed PEEK reinforced Molybdenum Disulfide Nanosheets Composite Scaffold for Craniofacial Reconstruction</p>
-              <p class="text-gray-400 font-extralight text-sm">Ongoing &middot; Faizal &amp; Shabana Foundation &middot; Co-Investigator</p>
+              <p class="text-gray-500 font-extralight text-sm">Ongoing &middot; Faizal &amp; Shabana Foundation &middot; Co-Investigator</p>
             </div>
             <div>
               <p class="font-light">Preclinical Evaluations of Tungsten Diselenide Nanosheets for Photothermal Therapy of Oral Squamous Cell Carcinoma</p>
-              <p class="text-gray-400 font-extralight text-sm">Ongoing &middot; Seed grant &middot; Co-Investigator</p>
+              <p class="text-gray-500 font-extralight text-sm">Ongoing &middot; Seed grant &middot; Co-Investigator</p>
             </div>
             <div>
               <p class="font-light">Genome-wide Association Studies (GWAS) for screening gene mutations in oral squamous cell carcinoma</p>
-              <p class="text-gray-400 font-extralight text-sm">Completed &middot; Seed grant &middot; Co-Investigator</p>
+              <p class="text-gray-500 font-extralight text-sm">Completed &middot; Seed grant &middot; Co-Investigator</p>
             </div>
             <div>
               <p class="font-light">EGFR dysregulation in Oral Squamous Cell Carcinoma</p>
-              <p class="text-gray-400 font-extralight text-sm">Ongoing &middot; Seed grant</p>
+              <p class="text-gray-500 font-extralight text-sm">Ongoing &middot; Seed grant</p>
             </div>
             <div>
               <p class="font-light">Discovery of putative kinases with diagnostic and prognostic value in triple negative breast cancer using a multi-omics approach</p>
             </div>
             <div>
               <p class="font-light">Gut microbiome and cancer cell crosstalk as a molecular drug target in colon cancer</p>
-              <p class="text-gray-400 font-extralight text-sm">ICMR funding</p>
+              <p class="text-gray-500 font-extralight text-sm">ICMR funding</p>
             </div>
             <div>
               <p class="font-light">Evaluation of HER2 gene amplification in breast cancer by qPCR, IHC and FISH</p>
-              <p class="text-gray-400 font-extralight text-sm">Ongoing</p>
+              <p class="text-gray-500 font-extralight text-sm">Ongoing</p>
             </div>
           </div>
         </div>
@@ -580,9 +582,9 @@
         <!-- Publications -->
         <div class="glass rounded-2xl p-8 text-center reveal">
           <h3 class="text-2xl font-light tracking-tight mb-2 gradient-text">Publications</h3>
-          <p class="text-gray-400 font-extralight text-sm mb-6">25 peer-reviewed publications in national and international journals</p>
+          <p class="text-gray-500 font-extralight text-sm mb-6">25 peer-reviewed publications in national and international journals</p>
           <div class="pub-list max-h-96 overflow-y-auto text-left max-w-3xl mx-auto pr-3">
-            <ol class="list-decimal list-inside space-y-3 text-gray-300 font-extralight text-sm">
+            <ol class="list-decimal list-inside space-y-3 text-gray-600 font-extralight text-sm">
               <li>Tauro LF, Rao BS, Hegde BR, Peter AI, Gulvadi RK. Obstructed/strangulated diaphragmatic hernia: A rare cause of acute intestinal obstruction in adults. Indian Journal of Thoracic and Cardiovascular Surgery. 2006;22(4):233-5.</li>
               <li>Permi HS, Shetty R, Alva S, Shetty B, Ballal R. Scrotal calcinosis: Rare case reports of two cases. Journal of Health and Allied Sciences NU. 2012;2(02):57-9.</li>
               <li>Bhat SP, Permi HS, Shetty R, Shenoy J, Prasad K, Hegde P. Ancient schwannoma of the chest wall diagnosed by fine needle aspiration cytology: A rare case report. Journal of Health and Allied Sciences NU. 2012;2(03):27-9.</li>
@@ -615,7 +617,7 @@
         <!-- Book chapter -->
         <div class="glass rounded-2xl p-8 text-center mt-6 reveal">
           <h3 class="text-2xl font-light tracking-tight mb-3 gradient-text">Textbook Chapter</h3>
-          <p class="text-gray-300 font-extralight max-w-2xl mx-auto">Authored the chapter on Clinical Features and Staging in "Yenepoya Student Series Vol. I: Oral Cancer" (ISBN 978-81-934857-7-4).</p>
+          <p class="text-gray-600 font-extralight max-w-2xl mx-auto">Authored the chapter on Clinical Features and Staging in "Yenepoya Student Series Vol. I: Oral Cancer" (ISBN 978-81-934857-7-4).</p>
         </div>
       </div>
     </div>
@@ -627,20 +629,20 @@
   <section id="community" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-4xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Community</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Community</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-14 reveal">Giving <span class="gradient-text">back</span></h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="glass rounded-2xl p-8 text-center reveal">
-            <p class="text-gray-300 font-extralight">Part of the Cancer Awareness and Outreach Program (CAOP), creating awareness about cancer among the general public.</p>
+            <p class="text-gray-600 font-extralight">Part of the Cancer Awareness and Outreach Program (CAOP), creating awareness about cancer among the general public.</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center reveal">
-            <p class="text-gray-300 font-extralight">Resource person for training National Service Scheme (NSS) programme officers to educate communities on control and prevention of common cancers.</p>
+            <p class="text-gray-600 font-extralight">Resource person for training National Service Scheme (NSS) programme officers to educate communities on control and prevention of common cancers.</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center reveal">
-            <p class="text-gray-300 font-extralight">Resource person in training ASHA and Anganwadi workers of Udupi district to spread awareness on common cancers.</p>
+            <p class="text-gray-600 font-extralight">Resource person in training ASHA and Anganwadi workers of Udupi district to spread awareness on common cancers.</p>
           </div>
           <div class="glass rounded-2xl p-8 text-center reveal">
-            <p class="text-gray-300 font-extralight">Volunteered in numerous cancer screening and early detection camps conducted across five districts of Karnataka.</p>
+            <p class="text-gray-600 font-extralight">Volunteered in numerous cancer screening and early detection camps conducted across five districts of Karnataka.</p>
           </div>
         </div>
       </div>
@@ -653,33 +655,33 @@
   <section id="contact" class="content">
     <div class="container mx-auto px-6 py-20 md:py-28">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-emerald-300 tracking-[0.3em] uppercase text-xs mb-4 reveal">Contact</p>
+        <p class="text-emerald-600 tracking-[0.3em] uppercase text-xs mb-4 reveal">Contact</p>
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">Book a <span class="gradient-text">consultation</span></h2>
-        <p class="text-gray-300 text-lg font-extralight mb-12 reveal">For appointments, second opinions, or professional enquiries, reach out directly.</p>
+        <p class="text-gray-600 text-lg font-extralight mb-12 reveal">For appointments, second opinions, or professional enquiries, reach out directly.</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
           <a href="tel:+919845603685" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
-            <p class="text-emerald-300 text-sm tracking-widest mb-2">PHONE</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-2">PHONE</p>
             <p class="text-xl font-light">+91 98456 03685</p>
           </a>
           <a href="mailto:shettyrohan@rediffmail.com" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
-            <p class="text-emerald-300 text-sm tracking-widest mb-2">EMAIL</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-2">EMAIL</p>
             <p class="text-xl font-light break-all">shettyrohan@rediffmail.com</p>
           </a>
           <a href="https://www.linkedin.com/in/rohan-shetty-8aa92219/" target="_blank" rel="noopener" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
-            <p class="text-emerald-300 text-sm tracking-widest mb-2">LINKEDIN</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-2">LINKEDIN</p>
             <p class="text-xl font-light">Connect professionally</p>
           </a>
           <a href="https://www.facebook.com/share/1Bfi6kkKQW/?mibextid=wwXIfr" target="_blank" rel="noopener" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
-            <p class="text-emerald-300 text-sm tracking-widest mb-2">FACEBOOK</p>
+            <p class="text-emerald-600 text-sm tracking-widest mb-2">FACEBOOK</p>
             <p class="text-xl font-light">Follow on Facebook</p>
           </a>
         </div>
 
         <div class="glass rounded-2xl p-8 text-center reveal">
-          <p class="text-emerald-300 text-sm tracking-widest mb-2">LOCATION</p>
+          <p class="text-emerald-600 text-sm tracking-widest mb-2">LOCATION</p>
           <p class="text-xl font-light mb-1">Mangalore, Karnataka, India 575004</p>
-          <p class="text-gray-400 font-extralight">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital</p>
+          <p class="text-gray-500 font-extralight">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital</p>
         </div>
       </div>
     </div>
@@ -689,7 +691,7 @@
   <footer class="content">
     <div class="glow-line"></div>
     <div class="container mx-auto px-6 py-10 text-center">
-      <p class="text-gray-400 font-extralight text-sm mb-2">Dr. Rohan Shetty &middot; MBBS, MS (Gen. Surg), MRCS (Edin.), FRCS (Glasgow), FACS, FSSO</p>
+      <p class="text-gray-500 font-extralight text-sm mb-2">Dr. Rohan Shetty &middot; MBBS, MS (Gen. Surg), MRCS (Edin.), FRCS (Glasgow), FACS, FSSO</p>
       <p class="text-gray-500 font-extralight text-xs">Surgical Oncologist &amp; Robotic Surgeon &middot; Mangalore, India</p>
       <p class="text-gray-600 font-extralight text-xs mt-4">&copy; <span id="year"></span> Dr. Rohan Shetty. All rights reserved.</p>
     </div>
@@ -752,7 +754,7 @@
     // The CSS aurora glow behind it is always visible, so if Spline is slow or blocked, nothing looks broken.
     const splineFrame = document.getElementById('splineFrame');
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (splineFrame && !isMobile) {
+    if (splineFrame && !isMobile && !location.search.includes('nospline')) {
       const loadSpline = () => {
         if (splineFrame.src) return;
         splineFrame.src = splineFrame.dataset.src;

@@ -4,8 +4,8 @@
   "description": "Surgical oncologist and robotic surgeon in Mangalore, India with 16+ years of experience and 5000+ major cancer surgeries.",
   "start_url": "/drrohanshetty/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "favicon.svg",
