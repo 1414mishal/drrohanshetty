@@ -125,14 +125,6 @@
     @media (prefers-reduced-motion: reduce) {
       .spline-container::before { animation: none; }
     }
-    .spline-container::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 82%, #ffffff 100%);
-      pointer-events: none;
-      z-index: 2;
-    }
     .spline-container iframe {
       position: relative;
       z-index: 1;
@@ -170,7 +162,7 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .stat-num {
       font-weight: 200;
-      background: linear-gradient(180deg, #ffffff 30%, #6ee7b7);
+      background: linear-gradient(180deg, #111827 30%, #059669);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -262,24 +254,28 @@
           <a href="#expertise" class="bg-transparent border border-emerald-400/30 rounded-md px-8 py-3 hover:bg-emerald-400/10 transition-all">Explore expertise</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-4xl mx-auto text-center reveal">
+  <!-- Stats -->
+  <section class="content bg-white">
+    <div class="container mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center reveal">
         <div>
           <p class="stat-num text-4xl md:text-5xl mb-1" data-count="16" data-suffix="+">0+</p>
-          <p class="text-gray-400 font-extralight text-sm">Years of experience</p>
+          <p class="text-gray-500 font-extralight text-sm">Years of experience</p>
         </div>
         <div>
           <p class="stat-num text-4xl md:text-5xl mb-1" data-count="5000" data-suffix="+">0+</p>
-          <p class="text-gray-400 font-extralight text-sm">Major surgeries performed</p>
+          <p class="text-gray-500 font-extralight text-sm">Major surgeries performed</p>
         </div>
         <div>
           <p class="stat-num text-4xl md:text-5xl mb-1" data-count="25" data-suffix="+">0+</p>
-          <p class="text-gray-400 font-extralight text-sm">Scientific publications</p>
+          <p class="text-gray-500 font-extralight text-sm">Scientific publications</p>
         </div>
         <div>
           <p class="stat-num text-4xl md:text-5xl mb-1">2016</p>
-          <p class="text-gray-400 font-extralight text-sm">Robotic surgeon since</p>
+          <p class="text-gray-500 font-extralight text-sm">Robotic surgeon since</p>
         </div>
       </div>
     </div>
