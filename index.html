@@ -139,12 +139,11 @@
       min-height: 100svh;
     }
     .spline-container {
+      /* inset:0 (not a viewport-unit height) so the dark backdrop always covers the
+         full hero, even when the hero content grows taller than one screen —
+         otherwise the ECG trace at the bottom lands on white and disappears. */
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100vh;
-      height: 100svh;
+      inset: 0;
       z-index: 0;
       overflow: hidden;
       background: #04120c;
@@ -259,7 +258,7 @@
       margin-top: 2.25rem;
     }
     .ecg-line .ecg-base {
-      stroke: rgba(110, 231, 183, 0.18);
+      stroke: rgba(110, 231, 183, 0.3);
     }
     .ecg-line .ecg-pulse {
       stroke: #6ee7b7;
