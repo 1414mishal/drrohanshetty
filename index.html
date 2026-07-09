@@ -92,16 +92,20 @@
       color: #111827;
     }
     .shader-bg-mount {
-      position: absolute;
-      top: 100vh;
-      top: 100svh;
+      /* Fixed + viewport-sized rather than stretched across the whole (very tall) page:
+         a mesh gradient needs a sane aspect ratio to show visible texture, and since it's
+         genuinely animated (not a static image), staying pinned to the viewport still means
+         it's always visible as you scroll — the opaque hero covers it while at the top. */
+      position: fixed;
+      top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
+      height: 100vh;
+      height: 100svh;
       z-index: 0;
       overflow: hidden;
       pointer-events: none;
-      opacity: 0.7;
+      opacity: 0.9;
     }
     .shader-bg-mount canvas {
       display: block;
@@ -113,7 +117,7 @@
       inset: 0;
     }
     .shader-layer.shader-layer-2 {
-      opacity: 0.6;
+      opacity: 0.7;
     }
     #home {
       position: relative;
@@ -827,7 +831,7 @@
             u_swirl: swirl,
             u_grainMixer: 0,
             u_grainOverlay: 0,
-            u_fit: ShaderFitOptions.contain,
+            u_fit: ShaderFitOptions.cover,
             u_rotation: 0,
             u_scale: 1,
             u_offsetX: 0,
@@ -865,9 +869,9 @@
         }
 
         // Layer 1: base pass, full opacity, 5 colors, speed 0.3 (matches the reference component)
-        mountLayer('meshGradientMount', ['#ffffff', '#ecfdf5', '#d1fae5', '#a7f3d0', '#ffffff'], 0.3, 0.7, 0.3);
-        // Layer 2: overlay pass at 60% CSS opacity (set via .shader-layer-2), speed 0.2
-        mountLayer('meshGradientMount2', ['#ffffff', '#a7f3d0', '#ffffff', '#d1fae5'], 0.2, 0.9, 0.6);
+        mountLayer('meshGradientMount', ['#ffffff', '#a7f3d0', '#6ee7b7', '#34d399', '#ffffff'], 0.3, 1.0, 0.6);
+        // Layer 2: overlay pass, speed 0.2
+        mountLayer('meshGradientMount2', ['#ffffff', '#6ee7b7', '#ffffff', '#a7f3d0'], 0.2, 1.1, 0.8);
       } catch (e) {
         // Silently fail — the plain white background is a safe fallback if the CDN module can't load.
       }
