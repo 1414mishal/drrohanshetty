@@ -106,7 +106,7 @@
       z-index: 0;
       overflow: hidden;
       pointer-events: none;
-      opacity: 0.9;
+      opacity: 0.38;
     }
     .shader-bg-mount canvas {
       display: block;
@@ -118,7 +118,7 @@
       inset: 0;
     }
     .shader-layer.shader-layer-2 {
-      opacity: 0.7;
+      opacity: 0.45;
     }
     .shader-layer-1.shader-bg-mount-fallback {
       background:
@@ -916,9 +916,10 @@
         }
 
         // Layer 1: base pass, full opacity, 5 colors, speed 0.3 (matches the reference component)
-        mountLayer('meshGradientMount', ['#ffffff', '#a7f3d0', '#6ee7b7', '#34d399', '#ffffff'], 0.3, 1.0, 0.6);
+        // Paler palette (no fully-saturated greens) so body text stays readable on top.
+        mountLayer('meshGradientMount', ['#ffffff', '#ecfdf5', '#d1fae5', '#a7f3d0', '#ffffff'], 0.3, 0.8, 0.5);
         // Layer 2: overlay pass, speed 0.2
-        mountLayer('meshGradientMount2', ['#ffffff', '#6ee7b7', '#ffffff', '#a7f3d0'], 0.2, 1.1, 0.8);
+        mountLayer('meshGradientMount2', ['#ffffff', '#d1fae5', '#ffffff', '#ecfdf5'], 0.2, 0.9, 0.6);
       } catch (e) {
         // Silently fail — the plain white background is a safe fallback if the CDN module can't load.
       }
