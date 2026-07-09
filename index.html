@@ -87,35 +87,19 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      background: #ffffff;
+      background-color: #ffffff;
+      background-image:
+        radial-gradient(38% 38% at 12% 15%, rgba(167,243,208,0.28), transparent 70%),
+        radial-gradient(34% 34% at 88% 60%, rgba(110,231,183,0.22), transparent 70%),
+        radial-gradient(42% 42% at 45% 92%, rgba(209,250,229,0.3), transparent 70%);
+      background-size: 100% 1100px;
+      background-repeat: repeat-y;
       color: #111827;
     }
     #home {
       position: relative;
       overflow: hidden;
       background: #ffffff;
-    }
-    .ambient-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .ambient-bg::before {
-      content: '';
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(38% 38% at 15% 20%, rgba(167,243,208,0.22), transparent 70%),
-        radial-gradient(34% 34% at 85% 15%, rgba(110,231,183,0.16), transparent 70%),
-        radial-gradient(42% 42% at 50% 90%, rgba(209,250,229,0.24), transparent 70%);
-      filter: blur(80px);
-      animation: auroraDrift 26s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .ambient-bg::before { animation: none; }
     }
     .spline-container {
       position: absolute;
@@ -208,9 +192,6 @@
   </style>
 </head>
 <body class="bg-white text-gray-900 font-light antialiased">
-
-  <!-- Soft ambient glow behind the light-theme sections (pure CSS, matches the hero's aurora effect) -->
-  <div class="ambient-bg" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="content sticky top-0 z-50">
