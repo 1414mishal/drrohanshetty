@@ -94,6 +94,7 @@
     .shader-bg-mount {
       position: absolute;
       top: 100vh;
+      top: 100svh;
       left: 0;
       right: 0;
       bottom: 0;
@@ -118,6 +119,9 @@
       position: relative;
       overflow: hidden;
       background: #ffffff;
+      /* Overrides Tailwind's min-h-screen (100vh), which jumps as mobile browser toolbars
+         show/hide during scroll. 100svh stays fixed to the smallest possible viewport instead. */
+      min-height: 100svh;
     }
     .spline-container {
       position: absolute;
@@ -125,6 +129,7 @@
       left: 0;
       right: 0;
       height: 100vh;
+      height: 100svh;
       z-index: 0;
       overflow: hidden;
       background: #04120c;
@@ -838,6 +843,7 @@
 
           // The library's own resize-observer path doesn't reliably size the WebGL buffer to
           // match the mount element, so size and render explicitly (and again on window resize).
+          let lastWindowWidth = window.innerWidth;
           const syncSize = () => {
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
             const w = Math.round(mount.clientWidth * dpr);
@@ -849,7 +855,13 @@
             shaderInstance.render();
           };
           syncSize();
-          window.addEventListener('resize', syncSize);
+          // Only resize on real width changes — mobile browsers fire 'resize' constantly as the
+          // address bar shows/hides during scroll, which only ever changes height, not width.
+          window.addEventListener('resize', () => {
+            if (window.innerWidth === lastWindowWidth) return;
+            lastWindowWidth = window.innerWidth;
+            syncSize();
+          });
         }
 
         // Layer 1: base pass, full opacity, 5 colors, speed 0.3 (matches the reference component)
