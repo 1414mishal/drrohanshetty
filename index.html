@@ -83,18 +83,29 @@
   <style>
     html { scroll-behavior: smooth; }
     body {
+      position: relative;
       font-family: 'Manrope', sans-serif;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       background-color: #ffffff;
-      background-image:
-        radial-gradient(38% 38% at 12% 15%, rgba(167,243,208,0.28), transparent 70%),
-        radial-gradient(34% 34% at 88% 60%, rgba(110,231,183,0.22), transparent 70%),
-        radial-gradient(42% 42% at 45% 92%, rgba(209,250,229,0.3), transparent 70%);
-      background-size: 100% 1100px;
-      background-repeat: repeat-y;
       color: #111827;
+    }
+    .shader-bg-mount {
+      position: absolute;
+      top: 100vh;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .shader-bg-mount canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
     #home {
       position: relative;
@@ -192,6 +203,11 @@
   </style>
 </head>
 <body class="bg-white text-gray-900 font-light antialiased">
+
+  <!-- Real WebGL mesh-gradient shader (paper-design/shaders, vanilla JS, no React/bundler needed),
+       mounted only below the hero. Loaded via dynamic import after paint so it never blocks first render;
+       if it fails to load for any reason the plain white background is a safe fallback. -->
+  <div class="shader-bg-mount" id="meshGradientMount" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="content sticky top-0 z-50">
@@ -772,6 +788,58 @@
         window.addEventListener('load', () => setTimeout(loadSpline, 800));
       }
     }
+  </script>
+
+  <script type="module">
+    // Real WebGL mesh-gradient background for everything below the hero, using the vanilla
+    // (non-React) core of @paper-design/shaders directly from esm.sh — no bundler required.
+    (async () => {
+      try {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const mount = document.getElementById('meshGradientMount');
+        if (!mount) return;
+        const { ShaderMount, meshGradientFragmentShader, getShaderColorFromString, ShaderFitOptions } =
+          await import('https://esm.sh/@paper-design/shaders@0.0.77');
+        const colors = ['#ffffff', '#d1fae5', '#a7f3d0', '#ffffff'];
+        const uniforms = {
+          u_colors: colors.map(getShaderColorFromString),
+          u_colorsCount: colors.length,
+          u_distortion: 0.7,
+          u_swirl: 0.4,
+          u_grainMixer: 0,
+          u_grainOverlay: 0,
+          u_fit: ShaderFitOptions.contain,
+          u_rotation: 0,
+          u_scale: 1,
+          u_offsetX: 0,
+          u_offsetY: 0,
+          u_originX: 0.5,
+          u_originY: 0.5,
+          u_worldWidth: 0,
+          u_worldHeight: 0,
+        };
+        const shaderInstance = new ShaderMount(mount, meshGradientFragmentShader, uniforms, 0.15);
+        const gl = shaderInstance.gl;
+        const canvas = shaderInstance.canvasElement;
+
+        // The library's own resize-observer path doesn't reliably size the WebGL buffer to
+        // match the mount element, so size and render explicitly (and again on window resize).
+        const syncSize = () => {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const w = Math.round(mount.clientWidth * dpr);
+          const h = Math.round(mount.clientHeight * dpr);
+          if (canvas.width === w && canvas.height === h) return;
+          canvas.width = w;
+          canvas.height = h;
+          gl.viewport(0, 0, w, h);
+          shaderInstance.render();
+        };
+        syncSize();
+        window.addEventListener('resize', syncSize);
+      } catch (e) {
+        // Silently fail — the plain white background is a safe fallback if the CDN module can't load.
+      }
+    })();
   </script>
 </body>
 </html>
