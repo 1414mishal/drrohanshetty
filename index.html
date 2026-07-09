@@ -241,11 +241,66 @@
     }
     #mobileMenu {
       transition: opacity 0.3s ease, transform 0.3s ease;
+      /* Solid background: the translucent .glass style let the dark hero content
+         bleed through and made the open menu unreadable on phones. */
+      background: #ffffff;
+      box-shadow: 0 18px 40px rgba(4, 18, 12, 0.28);
+      z-index: 60;
     }
     #mobileMenu.hidden-menu {
       opacity: 0;
       transform: translateY(-8px);
       pointer-events: none;
+    }
+    /* Animated ECG trace in the hero — a pulse travels along the line continuously. */
+    .ecg-line {
+      width: min(520px, 86vw);
+      height: 56px;
+      margin-top: 2.25rem;
+    }
+    .ecg-line .ecg-base {
+      stroke: rgba(110, 231, 183, 0.18);
+    }
+    .ecg-line .ecg-pulse {
+      stroke: #6ee7b7;
+      stroke-dasharray: 70 770;
+      stroke-dashoffset: 840;
+      animation: ecgTrace 3.4s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(110, 231, 183, 0.9));
+    }
+    @keyframes ecgTrace {
+      to { stroke-dashoffset: 0; }
+    }
+    /* Soft pulsing dot at the centre of each section divider. */
+    .glow-line { position: relative; }
+    .glow-line::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      margin: -3px 0 0 -3px;
+      border-radius: 9999px;
+      background: #10b981;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+      animation: pulseDot 2.6s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(0.6); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    /* Gentle lift on hover for the glass cards (nav is .glass too but never .rounded-2xl). */
+    .glass.rounded-2xl {
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .glass.rounded-2xl:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(6, 95, 70, 0.14);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ecg-line .ecg-pulse, .glow-line::after { animation: none; }
+      .glass.rounded-2xl:hover { transform: none; }
     }
     .pub-list::-webkit-scrollbar { width: 5px; }
     .pub-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 8px; }
@@ -335,6 +390,11 @@
           <a href="#contact" class="bg-white text-black font-light rounded-md px-8 py-3 hover:bg-opacity-90 transition-all">Book a consultation</a>
           <a href="#expertise" class="bg-transparent border border-emerald-400/30 rounded-md px-8 py-3 hover:bg-emerald-400/10 transition-all">Explore expertise</a>
         </div>
+        <!-- Animated ECG heartbeat trace -->
+        <svg class="ecg-line reveal" viewBox="0 0 600 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+          <path class="ecg-base" d="M0,30 L140,30 L152,30 L158,20 L164,30 L230,30 L242,30 L254,4 L266,56 L278,30 L380,30 L390,30 L397,22 L404,30 L600,30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="ecg-pulse" d="M0,30 L140,30 L152,30 L158,20 L164,30 L230,30 L242,30 L254,4 L266,56 L278,30 L380,30 L390,30 L397,22 L404,30 L600,30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
     </div>
   </section>
