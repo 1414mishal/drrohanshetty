@@ -180,6 +180,10 @@
       opacity: 1;
     }
     .content { position: relative; z-index: 10; }
+    /* The .content rule above outranks Tailwind's .sticky/.z-50 (same specificity, later in
+       the cascade), which silently demoted the header to z-index:10 — letting hero content
+       paint over the open mobile menu. Restore the header's intended stacking here. */
+    header.content { position: sticky; top: 0; z-index: 50; }
     .glass {
       background: rgba(255, 255, 255, 0.78);
       backdrop-filter: blur(14px);
