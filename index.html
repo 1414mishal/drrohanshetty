@@ -267,6 +267,12 @@
       animation: ecgTrace 3.4s linear infinite;
       filter: drop-shadow(0 0 6px rgba(110, 231, 183, 0.9));
     }
+    /* Phones: the hairline trace scales down and gets lost — thicken and brighten it. */
+    @media (max-width: 640px) {
+      .ecg-line { height: 48px; margin-top: 1.75rem; }
+      .ecg-line .ecg-base { stroke: rgba(110, 231, 183, 0.45); stroke-width: 2.5; }
+      .ecg-line .ecg-pulse { stroke: #a7f3d0; stroke-width: 2.5; }
+    }
     @keyframes ecgTrace {
       to { stroke-dashoffset: 0; }
     }
