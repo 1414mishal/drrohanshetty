@@ -314,6 +314,19 @@
     .pub-list::-webkit-scrollbar { width: 5px; }
     .pub-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 8px; }
     .pub-list::-webkit-scrollbar-thumb { background: rgba(16,185,129,0.4); border-radius: 8px; }
+    .map-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #f0fdf4;
+    }
+    .map-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900 font-light antialiased">
@@ -855,10 +868,26 @@
           </a>
         </div>
 
-        <div class="glass rounded-2xl p-8 text-center reveal">
-          <p class="text-emerald-600 text-sm tracking-widest mb-2">LOCATION</p>
-          <p class="text-xl font-light mb-1">Mangalore, Karnataka, India 575004</p>
-          <p class="text-gray-500 font-extralight">Zulekha Yenepoya Institute of Oncology, Yenepoya Medical College Hospital</p>
+        <p class="text-emerald-600 text-sm tracking-widest mb-4 reveal">LOCATIONS</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl overflow-hidden text-center reveal">
+            <div class="map-embed">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7860.109591319372!2d74.83864927512128!3d12.873039787433324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4e4fe99a89%3A0xed72ce8be87c6920!2sYenepoya%20Specialty%20Hospital!5e1!3m2!1sen!2sin!4v1784282669917!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Yenepoya Specialty Hospital location"></iframe>
+            </div>
+            <div class="p-6">
+              <p class="text-xl font-light mb-1">Yenepoya Specialty Hospital</p>
+              <p class="text-gray-500 font-extralight text-sm">Mangalore, Karnataka, India</p>
+            </div>
+          </div>
+          <div class="glass rounded-2xl overflow-hidden text-center reveal">
+            <div class="map-embed">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.0047439937293!2d74.87754837512014!3d12.812299187488605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35f9542dcb233%3A0x68858688f6cda14!2sZulekha%20Yenepoya%20Institute%20of%20Oncology%20(Supported%20by%20TATA%20Trusts)!5e1!3m2!1sen!2sin!4v1784282705731!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Zulekha Yenepoya Institute of Oncology location"></iframe>
+            </div>
+            <div class="p-6">
+              <p class="text-xl font-light mb-1">Zulekha Yenepoya Institute of Oncology</p>
+              <p class="text-gray-500 font-extralight text-sm">Yenepoya Medical College Hospital, Mangalore, Karnataka 575004</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
