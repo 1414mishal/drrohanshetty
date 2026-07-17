@@ -849,6 +849,49 @@
         <h2 class="text-4xl md:text-5xl font-light tracking-tighter mb-6 reveal">Book a <span class="gradient-text">consultation</span></h2>
         <p class="text-gray-600 text-lg font-extralight mb-12 reveal">For appointments, second opinions, or professional enquiries, reach out directly.</p>
 
+        <div class="glass rounded-2xl p-8 md:p-10 text-left reveal mb-10">
+          <h3 class="text-2xl font-light tracking-tight mb-2">Book an Appointment</h3>
+          <p class="text-gray-500 font-extralight mb-8">Fill in your details and we'll get back to you within minutes via WhatsApp.</p>
+          <form id="appointmentForm" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="apptName" class="block text-sm font-medium mb-2">Full Name</label>
+                <input type="text" id="apptName" name="name" placeholder="Jane Doe" required class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-base font-light focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400">
+              </div>
+              <div>
+                <label for="apptPhone" class="block text-sm font-medium mb-2">Phone Number</label>
+                <input type="tel" id="apptPhone" name="phone" placeholder="+91 9XXXXXXXXX" required class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-base font-light focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400">
+              </div>
+            </div>
+            <div class="mb-5">
+              <label for="apptService" class="block text-sm font-medium mb-2">Select Service</label>
+              <select id="apptService" name="service" required class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-base font-light focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400">
+                <option value="" disabled selected>Choose a service</option>
+                <option>General Consultation</option>
+                <option>Head &amp; Neck Oncology</option>
+                <option>Breast Oncology</option>
+                <option>G.I. Oncology</option>
+                <option>Urological &amp; Gynecological Oncology</option>
+                <option>Robotic &amp; Minimal Access Surgery</option>
+                <option>Endoscopy &amp; Colonoscopy</option>
+                <option>Second Opinion</option>
+              </select>
+            </div>
+            <div class="mb-5">
+              <label for="apptDate" class="block text-sm font-medium mb-2">Preferred Date</label>
+              <input type="date" id="apptDate" name="date" class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-base font-light focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400">
+            </div>
+            <div class="mb-6">
+              <label for="apptMessage" class="block text-sm font-medium mb-2">Your Message</label>
+              <textarea id="apptMessage" name="message" rows="3" placeholder="Tell us about your concerns or questions..." class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-base font-light resize-y focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400"></textarea>
+            </div>
+            <button type="submit" class="w-full flex items-center justify-center gap-2 rounded-full bg-emerald-600 text-white font-light text-lg py-4 hover:bg-emerald-700 transition-all">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+              Send via WhatsApp
+            </button>
+          </form>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           <a href="tel:+919845603685" class="glass rounded-2xl p-8 text-center hover:border-emerald-300/40 transition-all block reveal">
             <p class="text-emerald-600 text-sm tracking-widest mb-2">PHONE</p>
@@ -959,6 +1002,34 @@
     document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Appointment form -> pre-filled WhatsApp message (no backend needed for a static site).
+    const appointmentForm = document.getElementById('appointmentForm');
+    appointmentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!appointmentForm.reportValidity()) return;
+      const data = new FormData(appointmentForm);
+      const name = data.get('name').trim();
+      const phone = data.get('phone').trim();
+      const service = data.get('service');
+      const date = data.get('date');
+      const message = data.get('message').trim();
+
+      const lines = [
+        `Hi, I'd like to book an appointment with Dr. Rohan Shetty.`,
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Service: ${service}`,
+      ];
+      if (date) {
+        const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+        lines.push(`Preferred date: ${formattedDate}`);
+      }
+      if (message) lines.push(`Message: ${message}`);
+
+      const url = `https://wa.me/919845603685?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener');
+    });
 
     // Load the Spline 3D background after first paint so it never blocks the hero.
     // The CSS aurora glow behind it is always visible, so if Spline is slow or blocked, nothing looks broken.
